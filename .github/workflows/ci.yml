@@ -24,8 +24,7 @@ jobs:
     uses: OnYyon/oregon-ci-templates/.github/workflows/test-go.yml@main
     with:
       go-version: "1.26"
-      test-path: "./..."
-      fail-on-error: true
+      test-packages: "./..."
 
   docker:
     needs: [lint, test]
