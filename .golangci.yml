@@ -6,14 +6,12 @@ run:
   allow-parallel-runners: true
 
 linters:
-  disable-all: true
   enable:
     - errcheck
     - gosimple
     - govet
     - ineffassign
     - staticcheck
-    - typecheck
     - unused
     - gofmt
     - goimports
