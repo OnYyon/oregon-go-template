@@ -15,7 +15,6 @@ linters:
     - unused
     - revive
     - misspell
-    - gci
     - nolintlint
     - gosec
     - bodyclose
@@ -40,6 +39,7 @@ formatters:
   enable:
     - gofmt
     - goimports
+    - gci
 
 issues:
   max-issues-per-linter: 0
