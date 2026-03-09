@@ -9,13 +9,14 @@ run:
 linters:
   enable:
     - errcheck
-    - gosimple
     - govet
     - ineffassign
     - staticcheck
     - unused
     - revive
     - misspell
+    - gci
+    - nolintlint
     - gosec
     - bodyclose
     - contextcheck
@@ -23,6 +24,17 @@ linters:
     - unparam
     - prealloc
     - makezero
+    - perfsprint
+    - gocyclo
+    - gocognit
+    - funlen
+    - maintidx
+    - errorlint
+    - err113
+    - wrapcheck
+    - copyloopvar
+    - fatcontext
+    - spancheck
 
 formatters:
   enable:
