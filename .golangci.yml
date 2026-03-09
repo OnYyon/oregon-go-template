@@ -26,36 +26,11 @@ linters:
     - prealloc
     - makezero
 
-settings:
-  revive:
-    confidence: 0.8
-
-  gofmt:
-    simplify: true
-
-  goimports:
-    local-prefixes: github.com/OnYyon/oregon-go-template
-
-  gosec:
-    severity: medium
-    confidence: medium
-    excludes:
-      - G104
-
-  errcheck:
-    check-type-assertions: true
-    check-blank: true
+formatters:
+  enable:
+    - gofmt
+    - goimports
 
 issues:
-  exclude:
-    default: false
-    rules:
-      - path: _test\.go
-        linters:
-          - errcheck
-          - gosec
-      - path: cmd/.*/main\.go
-        linters:
-          - unused
   max-issues-per-linter: 0
   max-same-issues: 0
