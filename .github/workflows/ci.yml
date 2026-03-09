@@ -27,15 +27,15 @@ jobs:
       test-path: "./..."
       fail-on-error: true
 
-    docker:
-      needs: [lint, test]
-      permissions:
-        contents: read
-        packages: write
-      uses: OnYyon/oregon-ci-templates/.github/workflows/docker-push.yml@main
-      secrets: inherit
-      with:
-        push_to_registry: ${{
-          github.event_name == 'push' &&
-          (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))}}
-        platforms: "linux/amd64"
+  docker:
+    needs: [lint, test]
+    permissions:
+      contents: read
+      packages: write
+    uses: OnYyon/oregon-ci-templates/.github/workflows/docker-push.yml@main
+    secrets: inherit
+    with:
+      push_to_registry: ${{
+        github.event_name == 'push' &&
+        (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/'))}}
+      platforms: "linux/amd64"
