@@ -1,4 +1,5 @@
 version: "2"
+
 run:
   timeout: 10m
   tests: true
@@ -25,15 +26,36 @@ linters:
     - prealloc
     - makezero
 
+settings:
+  revive:
+    confidence: 0.8
+
+  gofmt:
+    simplify: true
+
+  goimports:
+    local-prefixes: github.com/OnYyon/oregon-go-template
+
+  gosec:
+    severity: medium
+    confidence: medium
+    excludes:
+      - G104
+
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+
 issues:
-  exclude-use-default: false
+  exclude:
+    default: false
+    rules:
+      - path: _test\.go
+        linters:
+          - errcheck
+          - gosec
+      - path: cmd/.*/main\.go
+        linters:
+          - unused
   max-issues-per-linter: 0
   max-same-issues: 0
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - errcheck
-        - gosec
-    - path: cmd/.*/main\.go
-      linters:
-        - unused
